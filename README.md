@@ -136,6 +136,14 @@ stellar contract build
 
 ### 3. Desplegar en Testnet
 
+**Atajo en Windows:** este script compila, crea las cuentas, despliega, crea una obra de ejemplo, aprueba el primer hito y guarda los datos en `deployments/testnet.txt`.
+
+```powershell
+powershell -ExecutionPolicy Bypass -File scripts\deploy-testnet.ps1
+```
+
+**Paso a paso:**
+
 ```bash
 # Cuentas de prueba con fondos de Friendbot
 stellar keys generate cliente --network testnet --fund
