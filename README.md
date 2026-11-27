@@ -111,6 +111,25 @@ test result: ok. 10 passed; 0 failed
 
 ---
 
+## Desplegado en Testnet 🚀
+
+| | |
+|---|---|
+| **Contrato** | [`CDEAIZUTQDNCB2DV5VLRRM27EZFNF6R5KZGMO5CH4VXJQSMAQBIZ3NJG`](https://stellar.expert/explorer/testnet/contract/CDEAIZUTQDNCB2DV5VLRRM27EZFNF6R5KZGMO5CH4VXJQSMAQBIZ3NJG) |
+| **Token de pago** | XLM nativo (`CDLZFC3SYJYDZT7K67VZ75HPJVIEUVNIXF47ZG2FB2RMQQVU2HHGCYSC`) |
+| **Obra de ejemplo** | `1`: Piso (3 XLM, ya aprobado y pagado) + Paredes (4 XLM, en custodia) |
+
+Consultar la obra de ejemplo:
+
+```bash
+stellar contract invoke \
+  --id CDEAIZUTQDNCB2DV5VLRRM27EZFNF6R5KZGMO5CH4VXJQSMAQBIZ3NJG \
+  --source <tu-cuenta> --network testnet -- \
+  obra --obra_id 1
+```
+
+---
+
 ## Cómo correrlo
 
 ### Requisitos
