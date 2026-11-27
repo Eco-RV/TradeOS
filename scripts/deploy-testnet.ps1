@@ -7,7 +7,7 @@ $Red = "testnet"
 function Paso($texto) { Write-Host "`n==> $texto" -ForegroundColor Cyan }
 
 if (-not (Get-Command stellar -ErrorAction SilentlyContinue)) {
-    Write-Host "No se encontro Stellar CLI. Instalalo con:  cargo install --locked stellar-cli" -ForegroundColor Red
+    Write-Host "No se encontro Stellar CLI. Instalalo con:  winget install --id Stellar.StellarCLI" -ForegroundColor Red
     exit 1
 }
 
