@@ -204,6 +204,19 @@ stellar contract invoke --id tradeos --source cliente --network testnet -- \
   obra --obra_id 1
 ```
 
+### 5. Página web de demostración
+
+En `web/` hay una página sin build (HTML + JS con `@stellar/stellar-sdk` desde CDN) conectada al contrato de Testnet:
+
+- **Consultar una obra**: etapas, saldo en custodia, lo pagado y el plazo (lectura por simulación, no hace falta billetera).
+- **Acciones con [Freighter](https://www.freighter.app)** en Testnet: crear obra, aprobar la siguiente etapa, cancelar (vencido el plazo) y renunciar. Los botones se activan según seas el cliente o el maestro.
+- **Historial** de eventos del contrato (los últimos ~7 días que guarda el RPC).
+
+```bash
+python -m http.server 5173 --directory web
+# abrir http://localhost:5173
+```
+
 ---
 
 ## Estructura
@@ -217,6 +230,9 @@ TradeOS/
 │       └── src/
 │           ├── lib.rs          # contrato
 │           └── test.rs         # pruebas
+├── web/                        # página de demostración (index.html, app.js, styles.css)
+├── scripts/deploy-testnet.ps1  # despliegue + obra de ejemplo
+├── deployments/testnet.txt     # direcciones del despliegue
 └── README.md
 ```
 

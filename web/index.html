@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>TradeOS · Pagos por avance de obra</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🧱</text></svg>" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="top">
+    <div class="wrap top-row">
+      <div class="brand">
+        <span class="logo">🧱</span>
+        <div>
+          <h1>TradeOS</h1>
+          <p class="sub">Pagos por avance de obra en Stellar</p>
+        </div>
+      </div>
+      <div class="top-actions">
+        <span class="pill net">Testnet</span>
+        <button id="btn-wallet" class="btn">Conectar Freighter</button>
+      </div>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <section class="hero card">
+      <ol class="steps">
+        <li><b>1. El cliente deposita</b><span>Toda la plata de la obra queda en custodia en el contrato.</span></li>
+        <li><b>2. Aprueba por etapas</b><span>Cada etapa aprobada le paga al maestro ese monto.</span></li>
+        <li><b>3. Si se vence el plazo</b><span>El cliente recupera lo que no se ha pagado.</span></li>
+      </ol>
+      <p class="contract-line">
+        Contrato <a id="contract-link" target="_blank" rel="noopener"><code id="contract-id"></code></a>
+        · <span id="total-obras">… obras creadas</span>
+      </p>
+    </section>
+
+    <section class="card">
+      <div class="card-head">
+        <h2>Consultar una obra</h2>
+        <form id="form-consulta" class="inline">
+          <label for="obra-id" class="sr">Número de obra</label>
+          <input id="obra-id" type="number" min="1" value="1" />
+          <button class="btn" type="submit">Consultar</button>
+        </form>
+      </div>
+      <div id="obra" class="obra empty">Escribí el número de una obra y tocá <b>Consultar</b>.</div>
+    </section>
+
+    <section class="card">
+      <div class="card-head">
+        <h2>Crear una obra</h2>
+        <span class="hint">La firma el cliente (tu cuenta de Freighter). Pago en XLM.</span>
+      </div>
+      <form id="form-crear" class="grid">
+        <label>Cuenta del maestro
+          <input id="c-maestro" placeholder="G…" required spellcheck="false" />
+        </label>
+        <label>Plazo
+          <input id="c-plazo" type="date" required />
+        </label>
+        <div class="hitos-edit">
+          <div class="hitos-edit-head"><span>Etapa</span><span>Monto (XLM)</span><span></span></div>
+          <div id="c-hitos"></div>
+          <button type="button" id="btn-add-hito" class="btn ghost small">+ Agregar etapa</button>
+        </div>
+        <div class="crear-foot">
+          <span>Total a depositar: <b id="c-total">0 XLM</b></span>
+          <button class="btn primary" type="submit">Crear obra y depositar</button>
+        </div>
+      </form>
+    </section>
+
+    <section class="card">
+      <div class="card-head">
+        <h2>Historial del contrato</h2>
+        <button id="btn-eventos" class="btn ghost small">Actualizar</button>
+      </div>
+      <ul id="eventos" class="eventos"><li class="muted">Cargando…</li></ul>
+    </section>
+  </main>
+
+  <footer class="wrap foot">
+    Proyecto de práctica · Pura Vida Bootcamp 2026 · Oswald Reid Villalobos
+  </footer>
+
+  <div id="toasts" class="toasts" aria-live="polite"></div>
+
+  <script type="module" src="app.js"></script>
+</body>
+</html>
